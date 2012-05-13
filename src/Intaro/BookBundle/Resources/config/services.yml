@@ -1,0 +1,7 @@
+parameters:
+#    intaro_book.example.class: Intaro\BookBundle\Example
+
+services:
+#    intaro_book.example:
+#        class: %intaro_book.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
