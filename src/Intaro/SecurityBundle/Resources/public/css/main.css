@@ -1,0 +1,55 @@
+/* signin form */
+._intarosecurity {
+  padding: 25px;
+  float: left;
+  background: #e0e0e0;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+._intarosecurity form table {
+}
+
+._intarosecurity form table td {
+  border: none;
+  padding: 0.5em;
+}
+
+._intarosecurity form table th {
+  text-align: right;
+  border: none;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  padding: 5px;
+}
+
+._intarosecurity h1 {
+  text-shadow: 1px 1px #fff;
+}
+
+._intarosecurity .errors {
+  color: #f00;
+  padding: 8px 0;
+}
+
+._intarosecurity td a {
+  font-size: 11px;
+}
+
+._intarosecurity input[type=text], ._intarosecurity input[type=password] {
+  font-size: 24px;
+}
+
+._intarosecurity label {
+  font-size: 18px;
+}
+
+._intarosecurity td label {
+  font-size: 14px;
+}
+
+._intarosecurity a {
+  color: #000;
+}

@@ -1,0 +1,27 @@
+{% extends 'IntaroBookBundle:Book:base.html.twig' %}
+
+{% block body %}
+<div class="books">
+    <h3>Неспешно читается или прочитано</h3>
+
+    {% for entity in entities %}
+    <div class="book">
+      <div class="cover">
+        <span class="author">{{ entity.author }}</span>
+        <span class="title">{{ entity.name }}</span>
+        <span class="actions">
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('books_edit', { 'id': entity.id }) }}" title="">Редактировать</a>        
+        {% endif %}
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+    	<div class="new-book">
+          <a href="{{ path('books_new') }}">Добавить книжку</a>
+    	</div>
+    {% endif %}
+</div>
+{% endblock %}

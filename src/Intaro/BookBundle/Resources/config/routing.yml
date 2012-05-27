@@ -1,3 +1,7 @@
 IntaroBookBundle_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: IntaroBookBundle:Default:index }
+    
+IntaroBookBundle_book:
+    resource: "@IntaroBookBundle/Resources/config/routing/book.yml"
+    prefix:   /books

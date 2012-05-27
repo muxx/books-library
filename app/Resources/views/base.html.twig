@@ -1,13 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- Всем изучающим исходник моей странички пламенный привет! -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+    <title>{% block title %}Салихов Ильяс{% endblock %}</title>
+
+{% block meta %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+</head>
+
+<body>
+{% block body %}{% endblock %}    
+
+{% block javascripts %}{% endblock %}
+{% include '::counters.html.twig' %}
+</body>
 </html>

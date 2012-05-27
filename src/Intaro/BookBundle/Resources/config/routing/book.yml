@@ -1,0 +1,26 @@
+books:
+    pattern:  /
+    defaults: { _controller: "IntaroBookBundle:Book:index" }
+
+books_new:
+    pattern:  /new
+    defaults: { _controller: "IntaroBookBundle:Book:new" }
+
+books_create:
+    pattern:  /create
+    defaults: { _controller: "IntaroBookBundle:Book:create" }
+    requirements: { _method: post }
+
+books_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "IntaroBookBundle:Book:edit" }
+
+books_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "IntaroBookBundle:Book:update" }
+    requirements: { _method: post }
+
+books_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "IntaroBookBundle:Book:delete" }
+    requirements: { _method: post }

@@ -10,4 +10,6 @@ web/bundles/*
 
 # Configuration files
 app/config/parameters.ini
-nbproject
+
+# Other
+*.DS_Store

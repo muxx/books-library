@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/intarosecurity/css/main.css') }}" rel="stylesheet" type="text/css">	
+{% endblock %}
+
+{% block body %}
+    <div class="_intarosecurity">
+        <h1>{% trans %}Sign in{% endtrans %}</h1>
+    
+        {% if error %}
+            <div class="errors">{{ error.message }}</div>
+        {% endif %}
+    
+        <form action="{{ path('login_check') }}" method="post">
+            <table>
+                <tbody>
+                    <tr>
+                        <th><label for="username">Логин</label></th>
+                        <td>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" />        
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="password">Пароль</label></th>
+                        <td>
+                            <input type="password" id="password" name="_password" />        
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" value="{% trans %}login{% endtrans %}" />&nbsp;&nbsp;                    
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+{% endblock %}

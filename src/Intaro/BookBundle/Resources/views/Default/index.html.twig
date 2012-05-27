@@ -1,1 +1,31 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block title %}Салихов Ильяс{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <link rel="openid.server" href="http://www.myopenid.com/server" />
+    <link rel="openid.delegate" href="http://muxx.myopenid.com/" />
+    <meta name="description" content="Страничка Салихова Ильяса" />
+    <meta name="keywords" content="Салихов Ильяс" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+  <h3>Ильяс Салихов</h3>
+  <div class="info">
+    <div class="about">
+      Проектирую, организую и контролирую в <a href="http://intaro.ru">Интаро</a>
+    </div>
+    <div class="contacts">
+      <span class="service">twitter</span> <a href="http://twitter.com/salikhov" title="">@salikhov</a><br />
+      <span class="service">мой круг</span> <a href="http://muxx.moikrug.ru/" title="">muxx</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
