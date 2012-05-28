@@ -6,10 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="book")
  */
 class Book
 {
+    const
+        COVER_UPLOAD_DIR = '/uploads/covers',
+        FILE_UPLOAD_DIR  = '/uploads/books';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -41,6 +46,23 @@ class Book
      * @ORM\Column(length=255, nullable=true)
      */
     protected $filename;
+    
+    /**
+     * for files upload
+     */
+    public $cover_file;
+    public $book_file;
+
+    /**
+     * Create object
+     * 
+     * @access public
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->read_at = new \DateTime();
+    }
 
     /**
      * Get id
@@ -150,5 +172,81 @@ class Book
     public function getFilename()
     {
         return $this->filename;
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->cover_file) 
+        {
+            // do whatever you want to generate a unique name
+            $this->cover = uniqid() . '.' . $this->cover_file->guessExtension();
+        }
+
+        if (null !== $this->book_file) 
+        {
+            // do whatever you want to generate a unique name
+            $this->filename = uniqid() . '.' . $this->book_file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null !== $this->cover_file) 
+        {
+            $this->cover_file->move($this->getWebRootDir() . self::COVER_UPLOAD_DIR, $this->cover);        
+            unset($this->cover_file);
+        }    
+
+        if (null !== $this->book_file) 
+        {
+            $this->book_file->move($this->getWebRootDir() . self::FILE_UPLOAD_DIR, $this->filename);        
+            unset($this->book_file);
+        }    
+    }    
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getCoverAbsolutePath())
+            unlink($file);
+
+        if ($file = $this->getFileAbsolutePath())
+            unlink($file);
+    }
+        
+    public function getCoverAbsolutePath()
+    {
+        return null === $this->cover ? null : $this->getWebRootDir() . self::COVER_UPLOAD_DIR . '/' . $this->cover;
+    }
+
+    public function getCoverWebPath()
+    {
+        return null === $this->cover ? null : self::COVER_UPLOAD_DIR . '/' . $this->cover;
+    }
+    
+    public function getFileAbsolutePath()
+    {
+        return null === $this->filename ? null : $this->getWebRootDir() . self::FILE_UPLOAD_DIR . '/' . $this->filename;
+    }
+
+    public function getFileWebPath()
+    {
+        return null === $this->filename ? null : self::FILE_UPLOAD_DIR . '/' . $this->filename;
+    }
+
+    protected function getWebRootDir()
+    {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__.'/../../../../web';
     }
 }

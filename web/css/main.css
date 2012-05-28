@@ -66,6 +66,10 @@ h3 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 10px 5px 5px 0;
     text-align: center;
+    position: relative;
+}
+.books .book .cover:hover {
+    background: #e6e6e6;
 }
 .books .book .cover .author {
     font-size: 11px;
@@ -80,14 +84,46 @@ h3 {
     line-height: 1.2;
 }
 .books .book .cover .actions {
-    display: inline-block;
+    display: block;
     padding-top: 2px;
     font-size: 11px;
 }
 .books .book .cover .actions a {
     font-size: 11px;
 }
+.books .book .cover a.download {
+    position: absolute;
+    bottom: 7px;
+    font-size: 11px;
+    padding-left: 12px;
+    background: url(../images/1338240798_download.gif) 0 80% no-repeat;
+    left: 35px;
+}
 .new-book {
     clear: left;
     padding: 10px 0;
+}
+/* form */
+.form_row {
+    padding: 5px;
+}
+.form_row label {
+    float: left;
+    width: 120px;
+}
+.form_row .input_row {
+    padding-left: 130px;
+}
+.record_actions {
+    padding: 10px 0;
+    list-style: none;
+}
+.record_actions li {
+    float: left;
+    margin: 0 10px 0 0;
+    
+}
+.preview {
+    float: right;
+    width: 50%;
 }

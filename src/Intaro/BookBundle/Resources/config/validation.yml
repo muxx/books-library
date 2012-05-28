@@ -1,0 +1,7 @@
+Intaro\BookBundle\Entity\Book:
+    properties:
+        cover_file:
+            - Image: ~
+        book_file:
+            - File: ~
+        

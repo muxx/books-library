@@ -12,14 +12,17 @@ class BookType extends AbstractType
         $builder
             ->add('name')
             ->add('author')
-            ->add('cover')
-            ->add('read_at')
-            ->add('filename')
+            ->add('read_at', null, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+            ))
+            ->add('cover_file')
+            ->add('book_file')
         ;
     }
 
     public function getName()
     {
-        return 'intaro_bookbundle_booktype';
+        return 'book';
     }
 }

@@ -1,16 +1,22 @@
-<h1>Book creation</h1>
-
-<form action="{{ path('books_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('books') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% extends 'IntaroBookBundle:Book:base.html.twig' %}
+{% form_theme form 'IntaroBookBundle:Form:book_fields.html.twig' %}
+{% block body %}
+<div class="books">
+    <h1>Book creation</h1>
+    
+    <form action="{{ path('books_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+    
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('books') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

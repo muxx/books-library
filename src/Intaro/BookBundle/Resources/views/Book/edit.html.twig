@@ -1,22 +1,41 @@
-<h1>Book edit</h1>
-
-<form action="{{ path('books_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
-</form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('books') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('books_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% extends 'IntaroBookBundle:Book:base.html.twig' %}
+{% form_theme edit_form 'IntaroBookBundle:Form:book_fields.html.twig' %}
+{% block body %}
+<div class="books">
+    <h1>Book edit</h1>
+    
+    {% if entity.cover or entity.filename %}
+        <div class="preview">
+            {% if entity.cover %}
+                <p><b>Current cover</b></p>
+                <img src="{{ asset(entity.getCoverWebPath()) }}" />
+            {% endif %}
+            {% if entity.filename %}
+	            <p><b>Current filename</b></p>
+	            {{ entity.filename }}
+            {% endif %}
+        </div>
+    {% endif %}
+    
+    <form action="{{ path('books_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button type="submit">Edit</button>
+        </p>
+    </form>
+    
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('books') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('books_delete', { 'id': entity.id }) }}" method="post">
+                {{ form_widget(delete_form) }}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>	
+</div>
+{% endblock %}
