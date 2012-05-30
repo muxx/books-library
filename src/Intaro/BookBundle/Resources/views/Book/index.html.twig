@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="books">
-    <h3>Неспешно читается или прочитано</h3>
+    <h3>Прочитано // в хронологическом порядке</h3>
 
     {% for entity in entities %}
     <div class="book">
@@ -13,7 +13,7 @@
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('books_edit', { 'id': entity.id }) }}" title="">Редактировать</a>        
         {% endif %}
-        {% if entity.filename and entity.allowDownload or is_granted('ROLE_ADMIN') %}
+        {% if entity.filename and (entity.allowDownload or is_granted('ROLE_ADMIN')) %}
             <a class="download" href="{{ entity.getFileWebPath }}" title="">Скачать</a>        
         {% endif %}
         </span>
