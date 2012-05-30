@@ -193,8 +193,9 @@ class Book
 
         if (null !== $this->book_file) 
         {
+            $sourceExtension = pathinfo($this->book_file->getClientOriginalName(), PATHINFO_EXTENSION);
             // do whatever you want to generate a unique name
-            $this->filename = uniqid() . '.' . $this->book_file->guessExtension();
+            $this->filename = uniqid() . '.' . ($this->book_file->guessExtension() != $sourceExtension ? $sourceExtension : $this->book_file->guessExtension());
         }
     }
 
