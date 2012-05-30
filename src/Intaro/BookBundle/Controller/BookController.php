@@ -23,7 +23,11 @@ class BookController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('IntaroBookBundle:Book')->findAll();
+        $query = $em->createQuery(
+            'SELECT b FROM IntaroBookBundle:Book b ORDER BY b.read_at DESC'
+        );
+        
+        $entities = $query->getResult();
 
         return $this->render('IntaroBookBundle:Book:index.html.twig', array(
             'entities' => $entities
@@ -63,7 +67,7 @@ class BookController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('books', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('books'));
             
         }
 
