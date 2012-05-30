@@ -33,6 +33,11 @@ class Book
     protected $author;
     
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $allow_download;
+    
+    /**
      * @ORM\Column(length=255, nullable=true)
      */
     protected $cover;
@@ -248,5 +253,25 @@ class Book
     {
         // the absolute directory path where uploaded documents should be saved
         return __DIR__.'/../../../../web';
+    }
+
+    /**
+     * Set allow_download
+     *
+     * @param boolean $allowDownload
+     */
+    public function setAllowDownload($allowDownload)
+    {
+        $this->allow_download = $allowDownload;
+    }
+
+    /**
+     * Get allow_download
+     *
+     * @return boolean 
+     */
+    public function getAllowDownload()
+    {
+        return $this->allow_download;
     }
 }

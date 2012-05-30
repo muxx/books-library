@@ -12,6 +12,7 @@ class BookType extends AbstractType
         $builder
             ->add('name')
             ->add('author')
+            ->add('allow_download')
             ->add('read_at', null, array(
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',

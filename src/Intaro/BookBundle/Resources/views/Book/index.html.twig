@@ -13,7 +13,7 @@
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('books_edit', { 'id': entity.id }) }}" title="">Редактировать</a>        
         {% endif %}
-        {% if entity.filename %}
+        {% if entity.filename and entity.allowDownload or is_granted('ROLE_ADMIN') %}
             <a class="download" href="{{ entity.getFileWebPath }}" title="">Скачать</a>        
         {% endif %}
         </span>
