@@ -73,7 +73,7 @@ h3 {
 }
 .books .book .cover .author {
     font-size: 11px;
-    display: inline-block;
+    display: block;
 }
 .books .book .cover .title {
     display: inline-block;
