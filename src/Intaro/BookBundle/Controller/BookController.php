@@ -63,7 +63,7 @@ class BookController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('books_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('books', array('id' => $entity->getId())));
             
         }
 
