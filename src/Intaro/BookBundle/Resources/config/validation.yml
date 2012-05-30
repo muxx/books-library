@@ -3,5 +3,6 @@ Intaro\BookBundle\Entity\Book:
         cover_file:
             - Image: ~
         book_file:
-            - File: ~
+            - File:
+                maxSize: 10M
         
