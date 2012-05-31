@@ -4,7 +4,7 @@ html, body {
     background: #fff;
     font-family: Arial;
     font-size: 16px;
-    min-width: 600px;
+    min-width: 320px;
 }
 
 a {
@@ -64,7 +64,7 @@ h3 {
     height: 155px;
     background: #efefef;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 10px 5px 5px 0;
+    padding: 10px 5px 5px;
     text-align: center;
     position: relative;
 }
@@ -102,6 +102,31 @@ h3 {
 .new-book {
     clear: left;
     padding: 10px 0;
+}
+@media all and (max-width: 480px) {
+    .books .book {
+        float: none;
+        margin: 20px 0;
+    }
+    .books .book .cover {
+        width: auto;
+        height: auto;
+        padding-bottom: 25px;
+    }
+    .books .book .cover a.download {
+        left: 50%;
+        margin-left: -33px;
+        background-position: 0 70%;
+    }
+    .books .book .cover .author {
+        font-size: 14px;
+    }
+    .books .book .cover .title {
+        font-size: 16px;
+    }
+    .books .book .cover a.download {
+        font-size: 14px;
+    }
 }
 /* form */
 .form_row {
