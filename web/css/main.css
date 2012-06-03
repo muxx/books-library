@@ -20,6 +20,7 @@ a {
     padding: 200px 50px 50px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
+    position: relative;
 }
 
 h3 {
@@ -44,7 +45,17 @@ h3 {
 }
 .contacts .service {
 }
-
+.books-link {
+    position: absolute;
+    left: -75px;
+    top: 318px;
+    color: #999;
+    font-size: 11px;
+    width: 50px;
+    text-align: right;
+}
+.books-link a {
+}
 /* books */
 .books {
     padding: 20px;
