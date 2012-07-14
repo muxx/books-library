@@ -56,6 +56,29 @@ h3 {
 }
 .books-link a {
 }
+
+@media all and (max-width: 800px) {
+    h3 {
+        font-size: 40px;
+    }
+    .content {
+        width: auto;
+        margin: 20px;
+        padding: 20px;
+    }
+    .info {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .books-link {
+        position: relative;
+        width: auto;
+        text-align: left;
+        top: 50px;
+        left: 0;
+    }    
+}
+
 /* books */
 .books {
     padding: 20px;
